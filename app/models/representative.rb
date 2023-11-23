@@ -19,14 +19,26 @@ class Representative < ApplicationRecord
 
       existing_rep = Representative.find_by(name: official.name)
       if existing_rep
-        existing_rep.update({ ocdid: ocdid_temp, title: title_temp })
+        existing_rep.update({ 
+          ocdid: ocdid_temp, 
+          title: title_temp,
+          address: existing_rep.address,
+          party: existing_rep.party,
+          photo_url: existing_rep.photo_url
+        })
         reps.push(existing_rep)
       else
-        rep = Representative.create!({ name: official.name, ocdid: ocdid_temp, title: title_temp })
+        rep = Representative.create!({ 
+          name: official.name, 
+          ocdid: ocdid_temp, 
+          title: title_temp, 
+          address: official.address,
+          party: official.party,
+          photo_url: official.photo_url
+        })
         reps.push(rep)
       end
     end
-
     reps
   end
 end
