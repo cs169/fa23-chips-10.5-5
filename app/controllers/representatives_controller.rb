@@ -2,10 +2,10 @@
 
 class RepresentativesController < ApplicationController
   def index
-    if params[:county]
-      @representatives = Representative.where(county: params[:county])
-    else
-      @representatives = Representative.all
-    end
+    @representatives = if params[:county]
+                         Representative.where(county: params[:county])
+                       else
+                         Representative.all
+                       end
   end
 end
