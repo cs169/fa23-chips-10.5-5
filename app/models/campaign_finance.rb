@@ -12,7 +12,6 @@ class CampaignFinance < ApplicationRecord
     response = http.request(request)
     if response.code.to_i == 200
       JSON.parse(response.body)['results']
-
     else
       Rails.logger.debug { "API request failed with status code: #{response.code}" }
       nil

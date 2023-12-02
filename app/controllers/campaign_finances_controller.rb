@@ -19,7 +19,7 @@ class CampaignFinancesController < ApplicationController
   def show
     @representatives = []
     CampaignFinance.get_top_20_candidates(params[:cycle], params[:category]).each_with_index do |rep, index|
-      @representatives.push([index, rep['name'], rep['party']])
+      @representatives.push([index + 1, rep['name'], rep['party']])
     end
   end
 end
