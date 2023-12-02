@@ -1,0 +1,19 @@
+<!-- app/views/campaign_finances/search.html.erb -->
+
+<hr><h1>Search Campaign Finances</h1><hr>
+
+<%= form_tag('/campaign_finances/search', method: 'get') do %>
+  <div>
+    <label for="cycle">Select Cycle:</label>
+    <%= select_tag 'cycle', options_for_select(@cycle_options), prompt: 'Select Cycle' %>
+  </div>
+  <br>
+  <div>
+    <label for="category">Select Category:</label>
+    <%= select_tag 'category', options_for_select(@category_options), prompt: 'Select Category' %>
+  </div>
+  <br>
+  <div>
+    <%= submit_tag 'Search' %>
+  </div>
+<% end %>

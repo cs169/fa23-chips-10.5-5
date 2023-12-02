@@ -1,0 +1,32 @@
+<!-- app/views/representatives/index.html.erb -->
+
+<hr><h1>Top 20 Representatives</h1><hr>
+
+<table border="1" cellspacing="0" cellpadding="5">
+  <thead style="background-color: #f2f2f2;">
+    <tr>
+      <th><strong>Rank</strong></th>
+      <th><strong>Name</strong></th>
+      <th><strong>Party</strong></th>
+      <% if false %>
+        <th><strong>Candidate Loan</strong></th>
+        <th><strong>Contribution Total</strong></th>
+        <th><strong>Debts Owed</strong></th>
+        <th><strong>Disursements Total</strong></th>
+        <th><strong>End Cash</strong></th>
+        <th><strong>Individual Total</strong></th>
+        <th><strong>PAC Total</strong></th>
+        <th><strong>Refund Total</strong></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @representatives.each do |representative| %>
+      <tr>
+        <% representative.each do |column| %>
+          <td><%= column %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
