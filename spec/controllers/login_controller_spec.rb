@@ -21,17 +21,17 @@ RSpec.describe LoginController, type: :controller do
     end
   end
 
-  describe 'GET #google_oauth2' do
-    it 'redirects to create_google_user' do
+  describe 'GET #google_oauth2 & #github' do
+    before do
       request.env['omniauth.auth'] = user_info
+    end
+
+    it 'redirects to create_google_user' do
       get :google_oauth2
       expect(response).to redirect_to(root_url)
     end
-  end
 
-  describe 'GET #github' do
     it 'redirects to create_github_user' do
-      request.env['omniauth.auth'] = user_info
       get :github
       expect(response).to redirect_to(root_url)
     end
