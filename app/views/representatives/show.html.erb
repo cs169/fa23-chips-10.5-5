@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @rep_name %> Details</title>
+<body>
+
+  <h1><%= @rep_name %></h1>
+
+  <dl>
+    <dt>OCD ID:</dt>
+    <dd><%= @rep_ocdid %></dd>
+
+    <dt>Title:</dt>
+    <dd><%= @rep_title %></dd>
+
+    <dt>Address:</dt>
+    <dd><%= @rep_address %></dd>
+
+    <dt>Party:</dt>
+    <dd><%= @rep_party %></dd>
+
+    <dt>Photo:</dt>
+    <% if @rep.photo_url.present? %>
+      <dd><%= image_tag @rep.photo_url %></dd>
+    <% else %>
+      <dd><%= "Photo not found" %></dd>
+    <% end %>
+  </dl>
+
+</body>
+</html>
