@@ -25,7 +25,7 @@ RSpec.describe Representative, type: :model do
 
     it 'creates a representatives' do
       # Mock representative data from the API with a duplicate name
-      official = instance_double('official', name: 'Phil Er')
+      official = instance_double('official', name: 'Phil Er', address: nil, party: nil, photo_url: nil)
 
       office = instance_double('office', name: 'Mayor', division_id: 'ocdid_457', official_indices: [0])
       rep_info = instance_double('rep_info', officials: [official], offices: [office])
