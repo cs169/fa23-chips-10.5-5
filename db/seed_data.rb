@@ -586,7 +586,7 @@ module SeedData
                 ]
             },
             {
-                name:       'Alexander Ocasio Cortez',
+                name:       'Alexandria Ocasio Cortez',
                 news_items: [
                     {
                         title:       'What AOC and other House Dems want to do about Climate Change',
