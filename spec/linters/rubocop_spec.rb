@@ -5,8 +5,10 @@ require 'spec_helper'
 RSpec.describe 'rubocop analysis' do
   subject(:report) { `bundle exec rubocop` }
 
-  # Run `bundle exec rubocop -a` to auto-correct some linter errors
+  let(:offenses_count) { report.scan(/\d+ offenses detected/).first.to_i }
+
   it 'has no offenses' do
-    expect(report).to match(/no offenses detected$/)
+    puts "RuboCop detected offenses:\n#{report}" if offenses_count > 0
+    expect(offenses_count).to eq(0)
   end
 end

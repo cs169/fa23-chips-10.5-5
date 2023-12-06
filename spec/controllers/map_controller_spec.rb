@@ -19,4 +19,23 @@ RSpec.describe MapController, type: :controller do
       end
     end
   end
+
+  describe 'GET #index' do
+    let(:state_with_fips_code) { instance_double(State, std_fips_code: 'NY01') }
+
+    before do
+      allow(State).to receive(:all).and_return([state_with_fips_code])
+    end
+
+    it 'assigns all states to @states' do
+      get :index
+      expect(State).to have_received(:all)
+      expect(assigns(:states)).to eq([state_with_fips_code])
+    end
+
+    it 'indexes states by FIPS code' do
+      get :index
+      expect(assigns(:states_by_fips_code)).to eq({ 'NY01' => state_with_fips_code })
+    end
+  end
 end

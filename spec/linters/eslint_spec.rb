@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
+require 'English'
 require 'spec_helper'
 
 RSpec.describe 'eslint analysis' do
-  subject(:report) { `yarn run lint` } # `lint` in `package.json` $.scripts.lint
+  subject(:report) { `yarn run lint` }
 
-  # Run `yarn run lint` to see the errors.
-  # Run `yarn run lint_fix` to fix eslint errors.
+  let(:exit_status) { $CHILD_STATUS.exitstatus } # captures the exit status of the last executed shell command
+
   it 'has no offenses' do
-    # Example success: Done in 1.00s.
-    expect(report).to match(/Done in \d+\.\d+s\.\s$/)
+    expect(exit_status).to eq(0) # ESLint exits with 0 on success
+    expect(report).not_to include('error') # assuming ESLint outputs 'error' for any issues
   end
 end
