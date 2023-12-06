@@ -1,14 +1,17 @@
 .row
-    .col-12
-        %section.mt-4#actionmap-national-section
-            %h2.text-center National Map
-            .overflow-hidden.bg-light.text-center.mb-3
-                .overflow-auto.py-3
-                    %svg.d-block.mx-auto#actionmap-national-view{ height: '600px', width: '960px',
-                     xmlns: 'http://www.w3.org/2000/svg' }
-                    %title Map of US states
-                    /* SVG element will be filled using d3.js and a topojson file. */
-/** div displays the details for each state when user hovers over the state region on the map. **/
+  .col-12
+    %section.mt-4#actionmap-national-section
+      .d-flex.justify-content-center.align-items-center.mb-3
+        %div.text-center
+          %h2 National Map
+          %hr
+          %div.d-flex.justify-content-center
+            %button.btn.btn-primary.mr-2{ type: 'button', onclick: "window.location.href='/representatives'" } Search Location
+            %button.btn.btn-primary{ type: 'button', onclick: "window.location.href='/campaign_finances'" } Search Campaign Finances
+      %svg.d-block.mx-auto#actionmap-national-view{ height: '600px', width: '960px',
+          xmlns: 'http://www.w3.org/2000/svg' }
+      %title Map of US states
+
 #actionmap-info-box
 .d-none#actionmap-info-container{ 'data-states-topojson-file': asset_path('national/states/us-states.topo.json') }
 

@@ -1,30 +1,34 @@
-<hr><h1>Top 20 Representatives</h1><hr>
+<div style="text-align: center;">
+  <hr>
+  <h1>Top 20 Representatives</h1>
+  <hr>
 
-<table border="1" cellspacing="0" cellpadding="5">
-  <thead style="background-color: #f2f2f2;">
-    <tr>
-      <th><strong>Rank</strong></th>
-      <th><strong>Name</strong></th>
-      <th><strong>Party</strong></th>
-      <% if false %>
-        <th><strong>Candidate Loan</strong></th>
-        <th><strong>Contribution Total</strong></th>
-        <th><strong>Debts Owed</strong></th>
-        <th><strong>Disursements Total</strong></th>
-        <th><strong>End Cash</strong></th>
-        <th><strong>Individual Total</strong></th>
-        <th><strong>PAC Total</strong></th>
-        <th><strong>Refund Total</strong></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @representatives.each do |representative| %>
+  <table border="1" cellspacing="0" cellpadding="5" style="margin: 0 auto;">
+    <thead style="background-color: #f2f2f2;">
       <tr>
-        <% representative.each do |column| %>
-          <td><%= column %></td>
+        <th><strong>Rank</strong></th>
+        <th><strong>Name</strong></th>
+        <th><strong>Party</strong></th>
+        <% if false %>
+          <th><strong>Candidate Loan</strong></th>
+          <th><strong>Contribution Total</strong></th>
+          <th><strong>Debts Owed</strong></th>
+          <th><strong>Disbursements Total</strong></th>
+          <th><strong>End Cash</strong></th>
+          <th><strong>Individual Total</strong></th>
+          <th><strong>PAC Total</strong></th>
+          <th><strong>Refund Total</strong></th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @representatives.each do |representative| %>
+        <tr>
+          <% representative.each do |column| %>
+            <td><%= column %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
