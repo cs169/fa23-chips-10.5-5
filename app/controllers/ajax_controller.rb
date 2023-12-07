@@ -4,6 +4,10 @@
 class AjaxController < ApplicationController
   def counties
     @state = State.find_by(symbol: params[:state_symbol].upcase)
-    render json: @state.counties
+    if @state
+      render json: @state.counties
+    else
+      render json: [] # Render an empty array if state is not found
+    end
   end
 end
